@@ -281,9 +281,9 @@ print (idade_pessoa1 > idade_pessoa2)
 
 # 15)  Em uma casa, uma família decidiu dividir o valor da conta de energia entre os moradores da casa. No programa eles informam o valor da conta de energia e quantos que irão pagar a conta no mês. O programa calculará quanto cada um deverá contribuir com a conta de energia.
 
-conta_energia = input ('Informe o valor da conta ')
-pagantes_mes = input ('Informe quantas pessoas irão pagar a conta no mês ')
-print ( float (conta_energia) / float (pagantes_mes))
+conta_energia = float (input ('Informe o valor da conta '))
+pagantes_mes = int (input ('Informe quantas pessoas irão pagar a conta no mês '))
+print ( (conta_energia) / (pagantes_mes))
 
 # 16) Estou tentando entender os juros do meu banco. Para isto, ele me informou esta fórmula: Crie um programa que colete cada um destes valores para calcular o valor final que estarei pagando ao banco.
 
@@ -335,6 +335,25 @@ elif valorvenda_float > 10000 and valorvenda_float <= 50000:
 else:
     print ("O valor da comissão será: " + str (valorvenda_float*0.3))
     
+   # 
+
+def comissao(valor_venda):
+    comissao = 0
+    if valor_venda > 50000.0:
+        comissao = valor_venda * 0.3
+    elif valor_venda >= 10000.0:
+        comissao = valor_venda * 0.25
+    elif valor_venda >= 5000.0:
+        comissao = valor_venda * 0.2
+    elif valor_venda >= 1000.0:
+        comissao = valor_venda * 0.1
+    return comissao
+
+
+valor = float(input("Informe o valor da venda:"))
+resultado = comissao(valor)
+print(f"O valor da comissão é de R$ {resultado}")
+    
     
 # 20) Crie um programa para calcular o valor a ser pago para um determinado produto para a empresa NaoQueroMuitoSeuDinheiro. O pessoal desta empresa pediu o seguinte:
 
@@ -359,17 +378,101 @@ while parcela_atual <= quantidade_parcelas :
     
 # 21) Crie um script que liste todos os números dos telefones, ao serem informados, o prefixo e os sufixos. Por exemplo, suponha que o prefixo seja “3232” e que o primeiro prefixo seja “0001” e o último sufixo seja “0005”; logo o programa irá imprimir:
 
-# prefixo = input ('Prefixo')
-# sufixo1 = input ('Primeiro sufixo')
-# sufixo2 = input ('Segundo sufixo')
+# lista = ['3232', '0001', '0005']
 
-# sufixo_atual = 
 
-# while sufixo_atual <= sufixo2:
+def gerador_telefones(lista):
+    prefixo = lista[0]
+    sufixo_inicial = int(lista[1])
+    sufixo_final = int(lista[2])
+    lista_sufixos = []
+    lista_telefones = []
+
+    for i in range(int(sufixo_inicial), int(sufixo_final+1)):
+        num = i
+        str_num = str(num)
+        while len(str_num) < 4:
+            str_num = "0"+str_num
+        lista_sufixos.append(str_num)
+    print(lista_sufixos)
+
+    for i in range(len(lista_sufixos)):
+        lista_telefones.append(f"{prefixo}-{lista_sufixos[i]}")
+
+    print(lista_telefones)
+
+
+gerador_telefones(['3232', '0001', '0005'])
+gerador_telefones(['3232', '0012', '0032'])
+gerador_telefones(['3232', '0120', '0129'])
+gerador_telefones(['3232', '1100', '1115'])
 
 
 # 22) Crie um script que leia 10 números inteiros positivos e que irá apresentar:
 
+lista = [26, 11, 45, 67, 32, 26, 50, 32, 26, 74]
+
+
+def eh_primo(num):
+    if num == 2:
+        return True
+
+    for i in range(2, num):
+        if num % 2 == 0:
+            return False
+
+    return True
+
+
+def eh_par(num):
+    return True if num % 2 == 0 or num == 0 else False
+
+
+def analisa_numero(lista):
+    for num in lista:
+        primo = eh_primo(num)
+        par = eh_par(num)
+        print(
+            f"{num}, {'par' if par else 'não é par'}, {'é primo' if primo else 'não é primo'}")
+
+
+analisa_numero(lista)
+
+
+
 
 # 23)  Neste script você irá ler o nome de 4 alunos e suas notas e determinar qual aluno possui a maior nota
-    
+
+alunos_notas = {"Larissa": 10, "Daniel": 9, "Izabela": 5, "Giovana": 0}
+maior_nota_aluno = max(alunos_notas, key=alunos_notas.get)
+print (maior_nota_aluno)
+
+#
+
+alunos = []
+aluno = {}
+
+
+def maior_nota(lista_alunos):
+    maior_nota = 0
+    for aluno in lista_alunos:
+        for nome, nota in aluno.items():
+            if nota > maior_nota:
+                maior_nota = nota
+                melhor_aluno = nome
+
+    return (melhor_aluno)
+
+
+def programa():
+    for i in range(4):
+        nome = input(f"Qual o nome do aluno {i+1}?")
+        nota = float(input(f"Qual a nota do aluno {i+1}?"))
+        aluno[nome] = nota
+        alunos.append(aluno)
+
+    melhor_aluno = maior_nota(alunos)
+    print(f"O aluno com maior nota é: {melhor_aluno}")
+
+
+programa()
