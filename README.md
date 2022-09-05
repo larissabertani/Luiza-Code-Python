@@ -1,5 +1,5 @@
 # Luiza-Code-Python
-Atividades desenvolvidas durante o bootcamp Luiza <Code> 5ª edição, promovido pelo Luizalabs, de agosto a outubro de 2022.
+Atividades desenvolvidas durante o bootcamp Luiza Code 5ª edição, promovido pelo Luizalabs, de agosto a outubro de 2022.
 
 - Módulo 0 - Introdução ao mundo Dev
 - Módulo 1 - Introdução e Lógica de Programação
