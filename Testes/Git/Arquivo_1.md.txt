@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+
+Arquivo 1
+
+
+=========
+
+
+Estas mudanças foram adicionadas na branch principal
+=======
+
+Arquivo_1
+
+=========
+
+Este é o arquivo 1.
+
+Esta é uma mudança da feature 1.
+>>>>>>> b29bb19 (feat(mudanca-1): add mudanca ')
